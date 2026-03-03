@@ -1,0 +1,39 @@
+@import 'variables';
+@import 'mixins';
+@import 'global';
+@import 'button';
+@import 'login';
+@import 'game';
+@import 'user-info';
+@import 'game-board';
+@import 'leaderboard';
+@import 'dice-result';
+
+
+
+.debug-panel {
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.8);
+    backdrop-filter: blur(6);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    max-height: 30vh;
+    overflow: auto;
+    z-index: 9999;
+}
+
+.qr-code {
+    border: 12px solid rgb(255, 255, 255);
+    border-radius: 12px;
+    @include drop-shadow;
+}
+
+.qr-panel {
+    // flex-direction: row;
+    gap: 50px;
+    padding: 40px 60px;
+
+}

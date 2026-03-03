@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+@import '../styles/app.scss';
+@import "tailwindcss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Noto Sans TC;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,31 @@
+.user {
+    display: flex;
+
+    &__name {
+        font-size: 24px;
+        font-weight: bold;
+
+        color: $red;
+        text-shadow:
+            2px 2px 0 #fff,
+            -2px -2px 0 #fff,
+            2px -2px 0 #fff,
+            -2px 2px 0 #fff;
+    }
+
+    &__left,
+    &__right {
+        flex: 1;
+    }
+
+    &__left {
+        width: 120px;
+    }
+
+    &__right {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,37 @@
+{
+  "name": "ably-nextjs-vercel-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "debug": "node --inspect-brk ./node_modules/next/dist/bin/next",
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore app components",
+    "format:check": "prettier --check --ignore-path .gitignore app components"
+  },
+  "dependencies": {
+    "@ably/chat": "^0.6.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tanstack/react-query": "^5.90.20",
+    "ably": "^2.17.1",
+    "cookies-next": "^6.1.1",
+    "modern-react-dice-roll": "^1.0.0",
+    "mongodb": "^7.1.0",
+    "next": "^16.1.6",
+    "postcss": "^8.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-qr-code": "^2.0.18",
+    "tailwindcss": "^4.1.18",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.13",
+    "eslint": "8.57.0",
+    "eslint-config-next": "^13.4.19",
+    "prettier": "^3.2.5",
+    "sass": "^1.97.3"
+  }
+}

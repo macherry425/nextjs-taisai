@@ -1,0 +1,200 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__main {
+        padding: 20px;
+        // overflow: auto;
+        flex-grow: 1;
+    }
+
+    &__top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+.bottom-panel {
+    &:before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    position: sticky;
+    bottom: 0;
+    z-index: 999;
+    padding: 18px;
+    border-radius: 20px 20px 0 0;
+    backdrop-filter: blur(10);
+    background-color: rgba(255, 255, 255, 0.4);
+    // pointer-events: none;
+    overflow: auto;
+    flex-shrink: 0;
+
+    &__inner {
+        display: flex;
+        pointer-events: auto;
+        justify-content: space-around;
+        align-items: center;
+        width: max-content;
+        min-width: 100%;
+        gap: 20px;
+    }
+
+    .button {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}
+
+// chips
+.chips-panel {
+    display: flex;
+    gap: 0px;
+}
+
+
+
+.chip {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 4px dashed white;
+    transition: all 1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    background-color: $red;
+    transform: scale(0.8);
+    transition: $transition;
+
+    span {
+        border: 2px dashed white;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &[data-active='true'] {
+        transform: scale(1);
+    }
+
+    &[data-is-user='true'] {
+        z-index: 50;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        transform: scale(1.8);
+        filter: drop-shadow(2px 2px 5px rgba(110, 110, 110, 0.365));
+        cursor: pointer;
+
+    }
+
+    &--mini {
+        width: 40px;
+        height: 40px;
+        transform: scale(1);
+        border-width: 2px;
+
+        span {
+            border-width: 1px;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    $chips: (
+        (value:1, color:$pink),
+        (value:5, color:$red),
+        (value:10, color:rgba(128, 185, 255,1)),
+        (value:25, color:$blue),
+        (value:50, color:$purple),
+        (value:100, color:$gold),
+
+    );
+
+@each $chip in $chips {
+    &[data-value='#{map-get($chip, value)}'] {
+        background-color: #{map-get($chip, color)};
+    }
+}
+}
+
+.game-dice-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+[data-positive='true'] {
+    &:before {
+        content: '+'
+    }
+
+    color: $green;
+}
+
+[data-positive='false'] {
+    color: $red;
+
+}
+
+.text-change {
+    font-size: 30px;
+    animation: breathing 2s ease-in-out infinite alternate;
+}
+
+.text-result {
+    font-size: 30px;
+    display: flex;
+    gap: 10px;
+    animation: breathing 2s ease-in-out infinite alternate;
+
+}
+
+.msg-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 150px;
+    font-family: 'HanyiSentyPagoda', "LXGW WenKai Mono TC" !important;
+    pointer-events: none;
+    animation: scaleUp 2s ease-in-out forwards;
+    *{
+    color: white!important;
+     text-shadow:
+            3px 3px 0 $blue,
+            -3px -3px 0 $blue,
+            3px -3px 0 $blue,
+            -3px 3px 0 $blue;
+    }
+    @include drop-shadow ;
+    //    text-shadow:
+    //         3px 3px 0 #fff,
+    //         -3px -3px 0 #fff,
+    //         3px -3px 0 #fff,
+    //         -3px 3px 0 #fff;
+}

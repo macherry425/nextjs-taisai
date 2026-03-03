@@ -1,0 +1,120 @@
+.gameboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    min-width: 100%;
+    max-width: 1400px;
+    margin: auto;
+
+    div {
+        white-space: nowrap;
+
+    }
+
+    &-container {
+        overflow-x: visible;
+        overflow-y: auto;
+        margin: 0 -20px;
+        padding: 20px;
+        &[data-active='true'] {
+            .gameboard__grid {
+                pointer-events: non;
+            }
+        }
+    }
+
+    &__row {
+        display: flex;
+        gap: 10px;
+        overflow: visible;
+    }
+
+    &__grid {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10);
+        border-radius: 12px;
+        flex: 1;
+        text-align: center;
+        @include drop-shadow;
+        @include transition;
+        &[data-win='true'] {
+            background-color: #21f35552;
+            filter: drop-shadow(2px 2px 5px rgba(0, 237, 138, 0.217));
+        }
+
+        div:first-child {
+            font-family: 'zrdzst';
+            font-size: 42px;
+        }
+    }
+
+    &__scrollable {
+        width: 100%;
+        overflow: auto;
+    }
+}
+
+.dice {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-position: center;
+    background-image: url('/images/dice/1.svg');
+    background-repeat: none;
+    background-repeat: no-repeat;
+
+    &-container {
+        display: flex;
+        gap: 5px;
+    }
+
+    @for $i from 1 through 6 {
+        &[data-num='#{$i}'] {
+            background-image: url('/images/dice/#{$i}.svg');
+        }
+    }
+
+    &--two {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .dice {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &-grid {
+        display: flex;
+        gap: 5px;
+
+        &[data-amount='3'] {
+            .dice {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    &--medium {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.user-bet-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.text-tiny {
+    font-size: 12px;
+    margin-top: 2px;
+}

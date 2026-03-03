@@ -1,0 +1,54 @@
+.leaderboard {
+
+
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 2px;
+
+        &:not(.leaderboard__header) {
+            background-color: rgba(255, 255, 255, 0.225);
+
+        }
+
+        &>div {
+            display: flex;
+            gap: 20px;
+        }
+
+        &__number {
+            width: 100px;
+            color: $green;
+
+            &[data-negative='true'] {
+                color: $red;
+            }
+
+            &[data-negative='false']:last-child {
+                color: green;
+
+                &::before {
+                    content:'+';
+                }
+            }
+        }
+
+    }
+
+    &__header {
+        border-bottom: 1px solid $red;
+        background-color: unset !important;
+
+        * {
+            color: $red !important;
+        }
+
+    }
+}
